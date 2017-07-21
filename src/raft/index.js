@@ -12,12 +12,14 @@ import { Text } from 'react-native';
 import mainReducer from './MainDuck';
 import Main from 'main/containers/mainContainer';
 
+const reducers = combineReducers({ main: mainReducer });
+
 // Middleware
 const middleware = () => {
   return applyMiddleWare(logger);
 };
 
-const store = createStore(combineReducers({ main: mainReducer }))
+const store = createStore(reducers)
 
 export default class App extends Component {
   render() {

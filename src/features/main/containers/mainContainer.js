@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import MainScreen from '../components/MainScreen';
-import { initialMount } from 'redux/MainDuck';
+import { initialMount } from 'raft/MainDuck';
 
 class MainContainer extends Component {
   static propTypes = {

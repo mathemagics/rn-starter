@@ -1,3 +1,3 @@
 import React, { Component } from 'react';
-import App from './src/redux';
+import App from 'raft';
 export default () => <App />;
