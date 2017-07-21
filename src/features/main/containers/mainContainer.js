@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { string, func } from 'prop-types';
 import { connect } from 'react-redux';
 
-import MainScreen from '../components/MainScreen';
 import { initialMount } from 'raft/MainDuck';
+import MainScreen from '../components/MainScreen';
 
 class MainContainer extends Component {
-  static propTypes = {
-    message: PropTypes.string.isRequired,
-  }
-
   componentWillMount() {
-    
+    this.props.initialMount();
   }
 
   render() {
@@ -21,6 +17,11 @@ class MainContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ message: state.getIn(['main', 'message']) });
+MainContainer.propTypes = {
+  message: string.isRequired,
+  initialMount: func.isRequired,
+};
+
+const mapStateToProps = state => ({ message: state.getIn(['main', 'message']) });
 
 export default connect(mapStateToProps, { initialMount })(MainContainer);
