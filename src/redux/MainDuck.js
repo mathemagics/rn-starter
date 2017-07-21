@@ -4,7 +4,7 @@ import { Map } from 'immutable';
 const INITIAL_MOUNT = 'INITIAL_MOUNT';
 
 // Action Creators
-const initialMount = () => ({ type: INITIAL_MOUNT });
+export const initialMount = () => ({ type: INITIAL_MOUNT });
 
 const INITIAL_STATE = Map({
   message: 'initialized',

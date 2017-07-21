@@ -3,11 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import MainScreen from '../components/MainScreen';
+import { initialMount } from 'redux/MainDuck';
 
 class MainContainer extends Component {
   static propTypes = {
     message: PropTypes.string.isRequired,
   }
+
+  componentWillMount() {
+    
+  }
+
   render() {
     return (
       <MainScreen message={this.props.message} />
@@ -15,6 +21,6 @@ class MainContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => state.getIn(['main', 'message']);
+const mapStateToProps = (state) => ({ message: state.getIn(['main', 'message']) });
 
-export default MainContainer;
+export default connect(mapStateToProps, { initialMount })(MainContainer);

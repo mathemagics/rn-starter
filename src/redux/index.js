@@ -10,6 +10,7 @@ import { Text } from 'react-native';
 
 // Reducers
 import mainReducer from './MainDuck';
+import Main from 'main/containers/mainContainer';
 
 // Middleware
 const middleware = () => {
@@ -18,11 +19,11 @@ const middleware = () => {
 
 const store = createStore(combineReducers({ main: mainReducer }))
 
-export default class Main extends Component {
+export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Text>Hello World</Text>
+        <Main />
       </Provider>
     );
   }

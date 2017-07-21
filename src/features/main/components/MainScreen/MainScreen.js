@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Text } from 'react-native';
 
 import { Screen } from './styles';
 
