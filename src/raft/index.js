@@ -1,32 +1,26 @@
-'use strict'
-
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { combineReducers } from 'redux-immutable';
 import logger from 'redux-logger';
 
-import { Text } from 'react-native';
+import MainNav from 'nav/mainNav';
 
 // Reducers
-import mainReducer from './MainDuck';
-import Main from 'main/containers/mainContainer';
+import mainReducer from './mainDuck';
+import navReducer from './navDuck';
 
-const reducers = combineReducers({ main: mainReducer });
+const reducers = combineReducers({
+  main: mainReducer,
+  nav: navReducer,
+});
 
-// Middleware
-const middleware = () => {
-  return applyMiddleWare(logger);
-};
+const middleware = () => applyMiddleware(logger);
 
-const store = createStore(reducers)
+const store = createStore(reducers, middleware());
 
-export default class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <Main />
-      </Provider>
-    );
-  }
-}
+export default () => (
+  <Provider store={store}>
+    <MainNav />
+  </Provider>
+);

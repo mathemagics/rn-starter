@@ -4,14 +4,14 @@ import { Text } from 'react-native';
 
 import { Screen } from './styles';
 
-const MainComponent = props => (
+const SecondaryScreenComponent = props => (
   <Screen>
     <Text>{props.message}</Text>
   </Screen>
 );
 
-MainComponent.propTypes = {
+SecondaryScreenComponent.propTypes = {
   message: PropTypes.string.isRequired,
 };
 
-export default MainComponent;
+export default SecondaryScreenComponent;

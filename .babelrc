@@ -12,7 +12,9 @@
               "common": "./src/features/common",
               "services": "./src/services",
               "main": "./src/features/main",
-              "raft": "./src/raft"
+              "secondary": "./src/features/secondary",
+              "raft": "./src/raft",
+              "nav": "./src/nav"
             }
           }
         ]

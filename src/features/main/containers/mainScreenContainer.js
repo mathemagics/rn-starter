@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { string, func } from 'prop-types';
 import { connect } from 'react-redux';
 
-import { initialMount } from 'raft/MainDuck';
+import { initialMount } from 'raft/mainDuck';
 import MainScreen from '../components/MainScreen';
 
-class MainContainer extends Component {
+class MainScreenContainer extends Component {
   componentWillMount() {
     this.props.initialMount();
   }
@@ -17,11 +17,11 @@ class MainContainer extends Component {
   }
 }
 
-MainContainer.propTypes = {
+MainScreenContainer.propTypes = {
   message: string.isRequired,
   initialMount: func.isRequired,
 };
 
 const mapStateToProps = state => ({ message: state.getIn(['main', 'message']) });
 
-export default connect(mapStateToProps, { initialMount })(MainContainer);
+export default connect(mapStateToProps, { initialMount })(MainScreenContainer);
